@@ -1,0 +1,50 @@
+<ion-content class="onboarding-content ion-padding">
+
+  <div class="layout-wrapper">
+
+    <!-- TOP / CENTER: Branding -->
+    <div class="brand-section">
+      <div class="logo-container">
+        <!-- Ícono representativo de tareas -->
+        <ion-icon name="checkbox-outline"></ion-icon>
+      </div>
+      <h1 class="app-name">Errands & Chores</h1>
+      <p class="tagline">Your day, organized.</p>
+    </div>
+
+    <!-- BOTTOM: Theme Selector & CTA -->
+    <div class="bottom-section">
+
+      <div class="theme-selector">
+        <p class="selector-title">Choose your aesthetic</p>
+
+        <div class="swatch-row">
+          <button
+          aria-label="f"
+            *ngFor="let theme of themes"
+            class="swatch-btn"
+            [class.active]="currentTheme === theme.id"
+            [style.background-color]="theme.color"
+            (click)="selectTheme(theme.id)">
+            <!-- Muestra un checkmark si está seleccionado -->
+            <ion-icon name="checkmark" *ngIf="currentTheme === theme.id"></ion-icon>
+          </button>
+        </div>
+
+        <p class="active-theme-name">
+          {{ (themes | keyvalue)[0] }} <!-- Podrías mostrar el nombre activo aquí si lo deseas -->
+          <ng-container *ngFor="let t of themes">
+            <span *ngIf="currentTheme === t.id">{{ t.name }}</span>
+          </ng-container>
+        </p>
+      </div>
+
+      <ion-button expand="block" class="cta-btn" (click)="getStarted()">
+        Get started
+      </ion-button>
+
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,150 @@
+.flat-content {
+  --background: var(--ion-color-background, #FFFFFF);
+
+  /* HEADER DEL MES */
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 16px;
+
+    .month-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ion-text-color, #1A1A1A);
+      margin: 0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: var(--ion-color-surface, #F5F5F5);
+        border: 1px solid var(--ion-color-border, rgba(0,0,0,0.05));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        outline: none;
+
+        ion-icon {
+          font-size: 18px;
+          color: var(--ion-text-color, #1A1A1A);
+        }
+
+        &:active { background: var(--ion-color-step-100, #E0E0E0); }
+      }
+    }
+  }
+
+  /* CUADRÍCULA */
+  .calendar-wrapper {
+    padding: 0 16px;
+    margin-bottom: 24px;
+
+    .weekdays-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      margin-bottom: 12px;
+
+      span {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ion-color-step-500, #888888);
+      }
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      row-gap: 8px; /* Espacio vertical entre semanas */
+
+      .day-cell {
+        background: transparent;
+        border: none;
+        outline: none;
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px; /* Squarcle suave */
+        position: relative;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        .day-number {
+          font-size: 15px;
+          font-weight: 500;
+          color: var(--ion-text-color, #1A1A1A);
+          z-index: 2;
+        }
+
+        /* El puntito indicador */
+        .task-dot {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: var(--ion-color-primary, #534AB7);
+          position: absolute;
+          bottom: 6px;
+          z-index: 2;
+        }
+
+        /* Días del mes anterior o siguiente */
+        &.other-month {
+          .day-number {
+            color: var(--ion-color-step-400, #A0A0A0);
+          }
+        }
+
+        /* Día de hoy (Texto morado si no está seleccionado) */
+        &.is-today:not(.selected) {
+          .day-number {
+            color: var(--ion-color-primary, #534AB7);
+            font-weight: 700;
+          }
+        }
+
+        /* DÍA SELECCIONADO (El fondo sólido igual a tu diseño) */
+        &.selected {
+          background-color: var(--ion-color-primary, #534AB7);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          transform: scale(1.05);
+
+          .day-number {
+            color: #FFFFFF;
+            font-weight: 700;
+          }
+
+          .task-dot {
+            background-color: #FFFFFF; /* El puntito se vuelve blanco para contrastar */
+          }
+        }
+      }
+    }
+  }
+
+  /* LISTA DE AGENDA INFERIOR */
+  .agenda-section {
+    padding: 0 20px 40px;
+
+    .agenda-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ion-text-color, #1A1A1A);
+      margin: 0 0 16px 0;
+    }
+
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}

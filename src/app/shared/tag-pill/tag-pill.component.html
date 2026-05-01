@@ -1,0 +1,33 @@
+<!--
+  Inyectamos el color directamente como una variable CSS (--tag-color)
+  para poder usarlo en nuestra hoja de estilos sin importar qué color hex envíen.
+-->
+<button
+  class="tag-pill flat-design"
+  [class.add-btn]="isAddBtn"
+  [style.--tag-color]="color"
+  (click)="onPillClick()">
+
+  <!-- Variante 1: Botón de agregar (+ New) -->
+  <ng-container *ngIf="isAddBtn">
+    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+    <span class="label">New</span>
+  </ng-container>
+
+  <!-- Variante 2: Etiqueta normal -->
+  <ng-container *ngIf="!isAddBtn">
+    <!-- El puntito que hereda el color dinámico -->
+    <span class="dot"></span>
+
+    <span class="label">{{ name }}</span>
+
+    <!-- Variante 2.1: Etiqueta con opción de eliminar -->
+    <ion-icon
+      *ngIf="removable"
+      name="close-circle"
+      class="remove-icon"
+      (click)="onRemoveClick($event)">
+    </ion-icon>
+  </ng-container>
+
+</button>

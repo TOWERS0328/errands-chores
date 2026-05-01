@@ -1,0 +1,17 @@
+<!--
+  Utilizamos el componente nativo de Ionic como base para aprovechar
+  su posicionamiento fijo sobre el contenido
+-->
+<ion-fab [vertical]="position.split('-')[0]" [horizontal]="position.split('-')[1]" slot="fixed">
+
+  <ion-fab-button class="custom-fab" (click)="onClick()">
+
+    <!-- Muestra el icono principal -->
+    <ion-icon [name]="icon"></ion-icon>
+
+    <!-- Muestra la etiqueta si se provee la variante "with label" -->
+    <span *ngIf="label" class="fab-label">{{ label }}</span>
+
+  </ion-fab-button>
+
+</ion-fab>

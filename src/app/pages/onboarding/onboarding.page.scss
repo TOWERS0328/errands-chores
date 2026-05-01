@@ -1,0 +1,229 @@
+.onboarding-content {
+  --background: var(--ion-color-background, #FFFFFF);
+
+  /* Transición suave cuando el usuario toca un tema distinto y el fondo cambia */
+  transition: background-color 0.3s ease;
+
+  .layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 24px;
+    padding-top: 10vh; /* Baja un poco el logo desde el tope */
+  }
+
+  /* BRANDING */
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .logo-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      background: var(--ion-color-primary, #534AB7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+
+      ion-icon {
+        font-size: 40px;
+        color: #FFFFFF;
+      }
+    }
+
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ion-text-color, #1A1A1A);
+      margin: 0 0 8px 0;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--ion-color-step-600, #6B6B6B);
+      margin: 0;
+    }
+  }
+
+  /* THEME SELECTOR & BUTTON */
+  .bottom-section {
+    width: 100%;
+
+    .theme-selector {
+      text-align: center;
+      margin-bottom: 32px;
+
+      .selector-title {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ion-color-step-500, #888888);
+        margin-bottom: 16px;
+      }
+
+      .swatch-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 12px;
+
+        .swatch-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 2px solid var(--ion-color-border, rgba(0,0,0,0.1));
+          outline: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+
+          ion-icon {
+            font-size: 20px;
+            /* Si el fondo es muy claro (ej. Light theme), el check es oscuro, si no, blanco */
+            color: var(--ion-text-color, #ffffff);
+          }
+
+          &.active {
+            transform: scale(1.1);
+            border-color: var(--ion-color-primary, #534AB7);
+          }
+        }
+      }
+.onboarding-content {
+  --background: var(--ion-color-background, #FFFFFF);
+  transition: background-color 0.3s ease;
+
+  .layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centrar todo */
+    height: 100%;
+    padding: 10vh 24px 40px; /* Padding lateral exacto al diseño */
+  }
+
+  /* BRANDING (Logo y Títulos) */
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    .logo-container {
+      width: 120px; /* Más grande, igual a la Imagen 1 */
+      height: 120px;
+      border-radius: 32px; /* Borde súper redondeado (Squarcle) */
+      background: var(--ion-color-primary, #534AB7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+
+      ion-icon {
+        font-size: 60px;
+        color: #FFFFFF;
+      }
+    }
+
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ion-text-color, #1A1A1A);
+      margin: 0 0 12px 0;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--ion-color-step-500, #888888);
+      margin: 0;
+    }
+  }
+
+  /* THEME SELECTOR & BUTTON */
+  .bottom-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* El botón CTA como en el diseño (con margen, no pegado a los bordes) */
+    .cta-btn {
+      width: 100%;
+      --border-radius: 16px;
+      --background: var(--ion-color-primary, #534AB7);
+      --box-shadow: none;
+      height: 56px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 48px; /* Espacio entre el botón y el selector */
+      text-transform: none; /* Letra normal, no todo mayúsculas */
+    }
+
+    .theme-selector {
+      text-align: center;
+      width: 100%;
+
+      .selector-title {
+        font-size: 13px;
+        color: var(--ion-color-step-500, #888888);
+        margin-bottom: 16px;
+      }
+
+      .swatch-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+
+        .swatch-btn {
+          width: 52px; /* Cuadrados exactos a la imagen */
+          height: 52px;
+          border-radius: 16px; /* Borde redondeado, no círculo */
+          border: 1px solid var(--ion-color-border, rgba(0,0,0,0.1));
+          outline: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+
+          ion-icon {
+            font-size: 24px;
+            color: #ffffff; /* El check es blanco */
+          }
+
+          &.active {
+            transform: scale(1.05);
+            border-color: var(--ion-color-primary, #534AB7);
+          }
+        }
+      }
+    }
+  }
+}
+      .active-theme-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ion-text-color, #1A1A1A);
+        margin: 0;
+      }
+    }
+
+    .cta-btn {
+      --border-radius: 16px;
+      --background: var(--ion-color-primary, #534AB7);
+      --box-shadow: none;
+      height: 56px;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}

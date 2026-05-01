@@ -1,0 +1,116 @@
+.flat-design {
+  --background: var(--ion-color-surface, #F5F5F5);
+
+  .sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ion-text-color);
+    }
+
+    ion-button {
+      margin: 0;
+      --padding-end: 0;
+      ion-icon { font-size: 24px; color: var(--ion-color-step-500); }
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ion-text-color, #1A1A1A);
+    margin-bottom: 8px;
+  }
+
+  /* Cajas de inputs (idénticas al diseño) */
+  .input-box {
+    background: #FFFFFF;
+    border: 1px solid var(--ion-color-border, #E0E0E0);
+    border-radius: 12px;
+    padding: 4px 12px;
+
+    ion-input, ion-textarea {
+      --padding-start: 0;
+      font-size: 15px;
+      color: var(--ion-text-color);
+    }
+  }
+
+  /* Segmento de prioridad */
+  ion-segment {
+    background: transparent;
+    border: 1px solid var(--ion-color-border, #E0E0E0);
+    border-radius: 12px;
+    height: 48px;
+
+    ion-segment-button {
+      --indicator-color: var(--ion-color-primary, #534AB7);
+      --color-checked: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  /* Botones de contorno para Date/Time/Photos */
+  .action-buttons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .action-outline-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      border: 1px solid var(--ion-color-border, #E0E0E0);
+      border-radius: 12px;
+      height: 48px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ion-text-color);
+      gap: 8px;
+
+      ion-icon {
+        font-size: 18px;
+        color: var(--ion-color-step-500);
+      }
+
+      &.full-width {
+        flex: 0 0 100%;
+        justify-content: flex-start;
+        padding-left: 16px;
+      }
+    }
+  }
+
+  .photo-thumbnails { /* ... (Mantener tu CSS anterior para las miniaturas) ... */ }
+
+  .save-btn {
+    --border-radius: 16px;
+    --background: var(--ion-color-primary, #534AB7);
+    --background-activated: var(--ion-color-primary-shade, #4941a1);
+    --box-shadow: none;
+    height: 56px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: none;
+  }
+
+  /* Utilidades */
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+}

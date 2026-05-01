@@ -1,0 +1,10 @@
+<!-- Se aplica dinámicamente la clase correspondiente (high, medium o low) -->
+<div class="badge-container" [ngClass]="priority" [class.icon-only]="!showLabel">
+
+  <!-- El puntito de color -->
+  <div class="dot"></div>
+
+  <!-- La etiqueta de texto -->
+  <span class="label" *ngIf="showLabel">{{ formattedLabel }}</span>
+
+</div>

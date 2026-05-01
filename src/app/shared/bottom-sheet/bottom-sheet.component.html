@@ -1,0 +1,98 @@
+<ion-modal
+  [isOpen]="isOpen"
+  (ionModalDidDismiss)="onWillDismiss($event)"
+  [initialBreakpoint]="0.85"
+  [breakpoints]="[0, 0.85, 1]"
+  handleBehavior="cycle">
+
+  <ng-template>
+    <ion-content class="ion-padding flat-design">
+
+      <!-- HEADER DEL MODAL (Con la 'x' de cerrar) -->
+      <div class="sheet-header">
+        <h2>{{ taskToEdit ? 'Edit Task' : 'Create Task' }}</h2>
+        <ion-button fill="clear" color="dark" (click)="dismissModal()">
+          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <form [formGroup]="taskForm" (ngSubmit)="onSave()">
+
+        <!-- Input Título (Box styling) -->
+        <div class="form-group mt-16">
+          <label class="section-label">Title</label>
+          <div class="input-box">
+            <ion-input
+              formControlName="title"
+              placeholder="What needs to be done?">
+            </ion-input>
+          </div>
+        </div>
+
+        <!-- Textarea Descripción (Box styling) -->
+        <div class="form-group mt-16">
+          <label class="section-label">Description</label>
+          <div class="input-box">
+            <ion-textarea
+              formControlName="description"
+              placeholder="Add details..."
+              [autoGrow]="true"
+              rows="3">
+            </ion-textarea>
+          </div>
+        </div>
+
+        <!-- Selector de Prioridad -->
+        <div class="form-group mt-24">
+          <label class="section-label">Priority</label>
+          <ion-segment formControlName="priority" mode="ios">
+            <ion-segment-button value="high">
+              <ion-label>High</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="medium">
+              <ion-label>Medium</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="low">
+              <ion-label>Low</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+
+        <!-- Botones de Acción (Fecha y Fotos) -->
+        <div class="action-buttons-grid mt-24">
+          <button type="button" class="action-outline-btn">
+            <ion-icon name="calendar-outline"></ion-icon>
+            Add date
+          </button>
+
+          <button type="button" class="action-outline-btn">
+            <ion-icon name="time-outline"></ion-icon>
+            Add time
+          </button>
+
+          <button type="button" class="action-outline-btn full-width mt-8" (click)="takePhoto()">
+            <ion-icon name="image-outline"></ion-icon>
+            Add photos
+          </button>
+        </div>
+
+        <!-- Miniaturas de fotos -->
+        <div class="photo-thumbnails mt-8" *ngIf="attachedPhotos.length > 0">
+          <div class="thumbnail" *ngFor="let photo of attachedPhotos">
+            <img [src]="photo" alt="Attached" />
+          </div>
+        </div>
+
+        <!-- Botón de Guardar -->
+        <ion-button
+          expand="block"
+          class="save-btn mt-32"
+          type="submit"
+          [disabled]="taskForm.invalid">
+          Save Task
+        </ion-button>
+
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>

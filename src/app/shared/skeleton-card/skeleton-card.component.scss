@@ -1,0 +1,78 @@
+.flat-card {
+  /* Tokens visuales base */
+  background: var(--ion-color-surface, #F5F5F5);
+  border: 1px solid var(--ion-color-border, rgba(0,0,0,0.1));
+  border-radius: 16px; /* Token md-lg */
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: none;
+
+  .skeleton-header {
+    display: flex;
+    align-items: center;
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 12px 0 0;
+    }
+
+    .title {
+      width: 65%;
+      height: 20px;
+      border-radius: 6px;
+      margin: 0;
+    }
+  }
+
+  .skeleton-body {
+    .text-line {
+      height: 12px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+
+      &.full { width: 90%; }
+      &.partial { width: 60%; }
+    }
+  }
+
+  .skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tags-group {
+      display: flex;
+      gap: 8px;
+
+      .pill {
+        height: 22px;
+        width: 48px;
+        border-radius: 999px; /* Token pill para las etiquetas */
+        margin: 0;
+
+        &.wide {
+          width: 64px;
+        }
+      }
+    }
+
+    .date-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      margin: 0;
+    }
+  }
+
+  /* Utility classes */
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+}
+
+/* Modificar el color de la animación del skeleton nativo para que no desentone con los temas oscuros/claros */
+ion-skeleton-text {
+  --background: var(--ion-color-step-150, rgba(0,0,0,0.06));
+  --background-rgb: var(--ion-color-step-150, rgba(0,0,0,0.06));
+}

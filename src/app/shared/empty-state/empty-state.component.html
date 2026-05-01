@@ -1,0 +1,21 @@
+<div class="empty-state-container">
+
+  <!-- Ilustración / Ícono -->
+  <div class="illustration">
+    <ion-icon [name]="icon"></ion-icon>
+  </div>
+
+  <!-- Textos -->
+  <h3 class="title">{{ title }}</h3>
+  <p class="message">{{ message }}</p>
+
+  <!-- Botón de acción opcional -->
+  <ion-button
+    *ngIf="actionText"
+    class="action-btn"
+    fill="clear"
+    (click)="onAction()">
+    {{ actionText }}
+  </ion-button>
+
+</div>

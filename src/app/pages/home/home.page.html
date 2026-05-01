@@ -1,0 +1,75 @@
+<!-- Header Flat sin bordes -->
+<ion-header class="ion-no-border flat-header">
+  <ion-toolbar>
+    <div class="header-content">
+      <h1 class="greeting">{{ greeting }},</h1>
+      <p class="date">{{ currentDate | date:'EEEE, MMMM d' }}</p>
+    </div>
+  </ion-toolbar>
+
+  <!-- Chips de filtros -->
+  <div class="filters-scroll">
+    <div
+      *ngFor="let filter of filters"
+      class="filter-chip"
+      [class.active]="(currentFilter$ | async) === filter"
+      (click)="setFilter(filter)">
+      {{ filter }}
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="flat-content">
+  <div class="list-container">
+
+    <!-- ESTADO 1: Cargando (Skeletons) -->
+    <ng-container *ngIf="isLoading">
+      <app-skeleton-card *ngFor="let i of [1, 2, 3, 4]"></app-skeleton-card>
+    </ng-container>
+
+    <!-- ESTADO 2: Cargado (Tenemos los datos) -->
+    <ng-container *ngIf="!isLoading && (filteredTasks$ | async) as tasks">
+
+      <!-- Empty State: No hay tareas -->
+      <app-empty-state
+        *ngIf="tasks.length === 0"
+        icon="sparkles-outline"
+        title="You're all caught up!"
+        message="Enjoy your day. Your to-do list is completely clear."
+        actionText="+ Add a new task"
+        (action)="openCreateTask()">
+      </app-empty-state>
+
+      <!-- Lista de tareas con Swipes -->
+      <ng-container *ngIf="tasks.length > 0">
+
+        <app-swipe-actions
+          *ngFor="let task of tasks"
+          (swipeComplete)="markAsDone(task.id)"
+          (swipePostpone)="snoozeTask(task.id)"
+          (swipeDelete)="removeTask(task.id)">
+
+          <app-task-card [task]="task"></app-task-card>
+
+        </app-swipe-actions>
+
+        <!-- Hint Label (Requerimiento) -->
+        <p class="swipe-hint mt-24">swipe right = done · swipe left = delete</p>
+
+      </ng-container>
+    </ng-container>
+
+  </div>
+
+  <!-- FAB Bottom Right -->
+  <app-fab-button (fabClick)="openCreateTask()"></app-fab-button>
+
+  <!-- Bottom Sheet Modal para Crear/Editar -->
+  <app-bottom-sheet
+    [isOpen]="isBottomSheetOpen"
+    [taskToEdit]="taskToEdit"
+    (modalClosed)="onModalClosed()"
+    (saveTask)="saveTaskFromModal($event)">
+  </app-bottom-sheet>
+
+</ion-content>

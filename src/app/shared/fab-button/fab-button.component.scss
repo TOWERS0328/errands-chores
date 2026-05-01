@@ -1,0 +1,39 @@
+/*
+  Ajustamos los tokens nativos de Ionic a tu Flat Design:
+  - Sin sombras pesadas (--box-shadow: none)
+  - Color de fondo basado en el Accent Color de tus temas
+*/
+.custom-fab {
+  --background: var(--ion-color-primary, #534AB7);
+  --background-activated: var(--ion-color-primary-shade, #443B9D);
+  --color: #ffffff;
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra muy suave para no perder la estética flat */
+  --border-radius: 16px; /* Token de radio que pediste */
+
+  /* Transiciones suaves para los estados resting / pressed */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  ion-icon {
+    font-size: 24px; /* Tamaño estándar de Phosphor / Lucide adaptado a Ionic */
+  }
+
+  /* Estilos para la variante "with label" */
+  .fab-label {
+    margin-left: 8px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+
+/*
+  Ajuste del padding bottom global para que el FAB no tape la última tarea.
+  Esta clase se aplicará globalmente, pero la definimos aquí como referencia
+  o para forzarla si el componente padre no la tiene.
+*/
+:host-context(ion-content) {
+  --padding-bottom: 80px;
+}

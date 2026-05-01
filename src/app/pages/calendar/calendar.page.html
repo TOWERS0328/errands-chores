@@ -1,0 +1,69 @@
+<ion-content class="flat-content">
+
+  <!-- CABECERA DEL CALENDARIO (Mes y Flechas) -->
+  <div class="calendar-header">
+    <h2 class="month-title">{{ viewDate | date:'MMMM yyyy' }}</h2>
+
+    <div class="nav-buttons">
+      <button class="icon-btn" (click)="prevMonth()" aria-label="f">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <button class="icon-btn" (click)="nextMonth()" aria-label="e">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- CUADRÍCULA DEL CALENDARIO -->
+  <div class="calendar-wrapper">
+    <!-- Fila de los días (Sun, Mon, Tue...) -->
+    <div class="weekdays-row">
+      <span *ngFor="let day of weekDays">{{ day }}</span>
+    </div>
+
+    <!-- Matriz de días -->
+    <div class="days-grid">
+      <button
+        *ngFor="let day of calendarGrid"
+        class="day-cell"
+        [class.other-month]="!day.isCurrentMonth"
+        [class.is-today]="day.isToday"
+        [class.selected]="day.isSelected"
+        (click)="selectDay(day)">
+
+        <span class="day-number">{{ day.date | date:'d' }}</span>
+
+        <!-- El puntito indicador de tareas (Dot) -->
+        <div class="task-dot" *ngIf="day.hasTasks"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- LISTA DE AGENDA -->
+  <div class="agenda-section">
+    <!-- Título de la agenda (Ej: Friday, May 1) -->
+    <h3 class="agenda-title">{{ selectedDate | date:'EEEE, MMMM d' }}</h3>
+
+    <!-- Si no hay tareas ese día -->
+    <app-empty-state
+      *ngIf="agendaTasks.length === 0"
+      icon="calendar-clear-outline"
+      title="A clear schedule"
+      message="No tasks scheduled for this day.">
+    </app-empty-state>
+
+    <!-- Lista de tareas -->
+    <div class="agenda-list" *ngIf="agendaTasks.length > 0">
+      <app-swipe-actions
+        *ngFor="let task of agendaTasks"
+        (swipeComplete)="completeTask(task.id)"
+        (swipePostpone)="postponeTask(task.id)"
+        (swipeDelete)="deleteTask(task.id)">
+
+        <app-task-card [task]="task"></app-task-card>
+
+      </app-swipe-actions>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,56 @@
+.badge-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Tokens de diseño: espaciado y bordes */
+  padding: 4px 8px;
+  border-radius: 999px; /* Token: pill */
+  border: 1px solid var(--ion-color-border, rgba(0,0,0,0.1));
+
+  /* El fondo será sutil, heredando el color del dot con opacidad */
+  background: var(--badge-bg);
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--badge-color);
+    flex-shrink: 0;
+  }
+
+  .label {
+    margin-left: 6px;
+    /* Tokens de diseño: tipografía */
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ion-text-color, #1A1A1A);
+    line-height: 1;
+  }
+
+  /* Si solo se muestra el ícono, quitamos el padding sobrante */
+  &.icon-only {
+    padding: 4px;
+    border: none;
+    background: transparent;
+  }
+
+  /*
+   * VARIANTES DE COLOR
+   * Rojo para High, Ámbar para Medium, Verde para Low
+   */
+  &.high {
+    --badge-color: #DC3545; /* Rojo de urgencia */
+    --badge-bg: rgba(220, 53, 69, 0.1);
+  }
+
+  &.medium {
+    --badge-color: #FFC107; /* Naranja/Ámbar */
+    --badge-bg: rgba(255, 193, 7, 0.1);
+  }
+
+  &.low {
+    --badge-color: #28A745; /* Verde relajado */
+    --badge-bg: rgba(40, 167, 69, 0.1);
+  }
+}

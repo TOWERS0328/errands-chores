@@ -1,0 +1,70 @@
+/* HEADER: Flat Design y Tipografía */
+.flat-header {
+  --background: var(--ion-color-surface, #FFFFFF);
+  background: var(--ion-color-surface, #FFFFFF);
+  padding: 16px 20px 0;
+
+  .header-content {
+    .greeting {
+      font-size: 28px; /* Token Hero title */
+      font-weight: 700;
+      color: var(--ion-text-color, #1A1A1A);
+      margin: 0 0 4px 0;
+    }
+
+    .date {
+      font-size: 15px; /* Token card title */
+      font-weight: 500;
+      color: var(--ion-color-step-500, #888888);
+      margin: 0;
+    }
+  }
+
+  .filters-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 24px 0 16px;
+
+    /* Ocultar la barra de scroll visualmente */
+    &::-webkit-scrollbar { display: none; }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .filter-chip {
+      padding: 8px 16px;
+      border-radius: 999px; /* Token Pill */
+      background: var(--ion-color-step-100, #F0F0F0);
+      color: var(--ion-color-step-600, #6B6B6B);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+
+      &.active {
+        background: var(--ion-color-primary, #534AB7);
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+/* CONTENT: Fondo general de la app */
+.flat-content {
+  --background: var(--ion-color-background, #F5F5F5);
+
+  .list-container {
+    padding: 16px 20px 80px; /* 80px bottom padding para que el FAB no tape nada */
+  }
+
+  .swipe-hint {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ion-color-step-400, #A0A0A0);
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+  }
+
+  .mt-24 { margin-top: 24px; }
+}

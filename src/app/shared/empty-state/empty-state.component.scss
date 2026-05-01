@@ -1,0 +1,51 @@
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  padding: 32px;
+  text-align: center;
+
+  .illustration {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Usa el color de superficie (surface) definido en tus temas */
+    background: var(--ion-color-surface, #F5F5F5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    ion-icon {
+      font-size: 64px;
+      /* Color gris suave para que no compita visualmente con las tareas */
+      color: var(--ion-color-step-400, #A0A0A0);
+    }
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ion-text-color, #1A1A1A);
+    margin: 0 0 8px 0;
+  }
+
+  .message {
+    font-size: 13px;
+    color: var(--ion-color-step-600, #6B6B6B);
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+    max-width: 260px;
+  }
+
+  .action-btn {
+    --color: var(--ion-color-primary, #534AB7);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none; /* Mantener la tipografía limpia sin mayúsculas forzadas */
+  }
+}

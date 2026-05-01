@@ -1,0 +1,28 @@
+<ion-item-sliding #slidingItem (ionDrag)="onDrag()">
+
+  <!-- ACCIÓN IZQUIERDA (Swipe hacia la derecha = ✓ Completar) -->
+  <ion-item-options side="start">
+    <ion-item-option class="action-btn complete-btn" (click)="onComplete()">
+      <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+
+  <!-- CONTENIDO PRINCIPAL (Aquí se inyectará la Task Card) -->
+  <ion-item lines="none" class="transparent-item">
+    <div class="card-wrapper">
+      <ng-content></ng-content>
+    </div>
+  </ion-item>
+
+  <!-- ACCIONES DERECHAS (Swipe hacia la izquierda = Posponer / Borrar) -->
+  <ion-item-options side="end">
+    <ion-item-option class="action-btn postpone-btn" (click)="onPostpone()">
+      <ion-icon slot="icon-only" name="time-outline"></ion-icon>
+    </ion-item-option>
+
+    <ion-item-option class="action-btn delete-btn" (click)="onDelete()">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+
+</ion-item-sliding>

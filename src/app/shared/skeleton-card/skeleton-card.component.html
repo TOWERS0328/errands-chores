@@ -1,0 +1,25 @@
+<div class="skeleton-container flat-card">
+
+  <!-- Header: Punto de prioridad y Título -->
+  <div class="skeleton-header">
+    <ion-skeleton-text [animated]="true" class="dot"></ion-skeleton-text>
+    <ion-skeleton-text [animated]="true" class="title"></ion-skeleton-text>
+  </div>
+
+  <!-- Body: Descripción (2 líneas simuladas) -->
+  <div class="skeleton-body mt-12">
+    <ion-skeleton-text [animated]="true" class="text-line full"></ion-skeleton-text>
+    <ion-skeleton-text [animated]="true" class="text-line partial"></ion-skeleton-text>
+  </div>
+
+  <!-- Footer: Simulando los Tag Pills y la fecha -->
+  <div class="skeleton-footer mt-16">
+    <div class="tags-group">
+      <ion-skeleton-text [animated]="true" class="pill"></ion-skeleton-text>
+      <ion-skeleton-text [animated]="true" class="pill wide"></ion-skeleton-text>
+    </div>
+
+    <ion-skeleton-text [animated]="true" class="date-icon"></ion-skeleton-text>
+  </div>
+
+</div>

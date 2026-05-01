@@ -1,0 +1,166 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+/**
+ * ==========================================
+ * TIPOGRAFÍA GLOBAL (Inter / Sans-Serif)
+ * ==========================================
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/**
+ * ==========================================
+ * TEMA 1: LIGHT (POR DEFECTO)
+ * ==========================================
+ */
+:root, body.light {
+  --ion-color-primary: #534AB7;
+  --ion-color-primary-rgb: 83,74,183;
+  --ion-color-primary-shade: #4941a1;
+  --ion-color-primary-tint: #645ccf;
+
+  --ion-background-color: #FFFFFF;
+  --ion-color-surface: #F5F5F5;
+
+  --ion-text-color: #1A1A1A;
+  --ion-color-step-600: #6B6B6B; /* Subtext */
+  --ion-color-step-500: #888888;
+  --ion-color-step-400: #A0A0A0;
+
+  --ion-color-border: rgba(0,0,0,0.1);
+}
+
+/**
+ * ==========================================
+ * TEMA 2: DARK
+ * ==========================================
+ */
+body.dark {
+  --ion-color-primary: #7F77DD;
+  --ion-color-primary-rgb: 127,119,221;
+
+  --ion-background-color: #0E0E0E;
+  --ion-color-surface: #1C1C1E;
+
+  --ion-text-color: #F0F0F0;
+  --ion-color-step-600: #A0A0A0; /* Subtext */
+  --ion-color-step-500: #888888;
+  --ion-color-step-400: #6B6B6B;
+
+  --ion-color-border: rgba(255,255,255,0.1);
+}
+
+/**
+ * ==========================================
+ * TEMA 3: ROSÉ (Pink / Burgundy)
+ * ==========================================
+ */
+body.rose {
+  --ion-color-primary: #DC586D;
+  --ion-color-primary-rgb: 220,88,109;
+  --ion-color-primary-shade: #A33757; /* Color stop */
+
+  --ion-background-color: #4C1D3D;
+  --ion-color-surface: #852E4E;
+
+  --ion-text-color: #F8E8EC;
+  --ion-color-step-600: #D4A0B0; /* Subtext */
+  --ion-color-step-500: #F0A0A8; /* Highlight */
+  --ion-color-step-400: rgba(248, 232, 236, 0.5);
+
+  --ion-color-border: rgba(220,88,109,0.3);
+}
+
+/**
+ * ==========================================
+ * TEMA 4: FOREST (Dark Greens)
+ * ==========================================
+ */
+body.forest {
+  --ion-color-primary: #3C6848;
+  --ion-color-primary-rgb: 60,104,72;
+
+  --ion-background-color: #0F2B1E;
+  --ion-color-surface: #1C3D2C;
+
+  --ion-text-color: #E8F5EC;
+  --ion-color-step-600: #90B89A; /* Subtext */
+  --ion-color-step-500: #C4F0D0; /* Highlight */
+  --ion-color-step-400: rgba(232, 245, 236, 0.5);
+
+  --ion-color-border: rgba(60,104,72,0.35);
+}
+
+/**
+ * ==========================================
+ * TEMA 5: LATTE (Warm Wine & Cream)
+ * ==========================================
+ */
+body.latte {
+  --ion-color-primary: #901C22;
+  --ion-color-primary-rgb: 144,28,34;
+  --ion-color-primary-shade: #560C22; /* Dark stop */
+
+  --ion-background-color: #E8B8B4;
+  --ion-color-surface: #F5E8E4;
+
+  --ion-text-color: #2A0A10;
+  --ion-color-step-600: #7A3040; /* Subtext */
+  --ion-color-step-500: #C787A0;
+  --ion-color-step-400: rgba(42, 10, 16, 0.5);
+
+  --ion-color-border: rgba(144,28,34,0.2);
+}
+
+/**
+ * ==========================================
+ * UTILIDADES GLOBALES Y FIXES (FLAT DESIGN)
+ * ==========================================
+ */
+/* Remueve la línea que Ionic pone por defecto abajo de las barras de navegación */
+ion-header.ion-no-border::after {
+  display: none !important;
+}
+
+/* Modifica el color de fondo de las páginas de Ionic para que respete el tema */
+ion-content {
+  --background: var(--ion-background-color);
+}

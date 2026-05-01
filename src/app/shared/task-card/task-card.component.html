@@ -1,0 +1,59 @@
+<div class="flat-card"
+     [ngClass]="{'completed': task.status === 'completed'}"
+     #cardElement>
+
+  <div class="card-layout">
+
+    <!-- COLUMNA IZQUIERDA: Contenido de la tarea -->
+    <div class="content-col">
+
+      <!-- Fila 1: Punto de Prioridad + Título -->
+      <div class="header-row">
+        <!-- Usamos el badge en modo compacto (solo el punto) -->
+        <app-priority-badge [priority]="task.priority" [showLabel]="false"></app-priority-badge>
+
+        <h3 class="task-title">
+          {{ task.title }}
+          <!-- Línea animada de tachado cuando se completa -->
+          <span class="strikethrough-line" *ngIf="task.status === 'completed'"></span>
+        </h3>
+      </div>
+
+      <!-- Fila 2: Descripción corta (Opcional, se oculta si no hay) -->
+      <p class="task-desc" *ngIf="task.description">{{ task.description }}</p>
+
+      <!-- Fila 3: Etiquetas (Tag Pills) -->
+      <div class="tags-row" *ngIf="task.tags && task.tags.length > 0">
+        <app-tag-pill
+          *ngFor="let tag of task.tags"
+          [name]="tag.name"
+          [color]="tag.color">
+        </app-tag-pill>
+      </div>
+
+      <!-- Fila 4: Fecha límite y Recordatorio -->
+      <div class="meta-row" *ngIf="task.dueDate">
+        <ion-icon name="calendar-clear-outline"></ion-icon>
+        <!-- Usamos el DatePipe nativo de Angular para formatear la fecha ISO -->
+        <span class="date-text">{{ task.dueDate | date:'MMM d, h:mm a' }}</span>
+
+        <!-- Muestra una campanita si tiene un recordatorio activo -->
+        <ion-icon name="notifications" class="reminder-icon" *ngIf="task.reminder?.enabled"></ion-icon>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA: Miniatura de la foto (Solo aparece si hay fotos) -->
+    <div class="photo-col" *ngIf="hasPhoto">
+      <div class="thumbnail">
+        <img [src]="task.photos![0]" alt="Task attachment">
+
+        <!-- Indicador si hay más de 1 foto (Ej: "+2") -->
+        <div class="more-photos-badge" *ngIf="task.photos!.length > 1">
+          +{{ task.photos!.length - 1 }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
